@@ -1,4 +1,5 @@
-clean-css
-=========
+WebJar for CleanCSS
 
-WebJar of the CleanCSS project
+More info: http://webjars.org
+
+Upstream: https://github.com/GoalSmashers/clean-css
