@@ -18,9 +18,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<upstream.version>2.2.6</upstream.version>
+		<upstream.version>2.2.7</upstream.version>
 		<upstream.url>https://github.com/GoalSmashers/clean-css/archive</upstream.url>
 		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+		<extractDir>${project.build.directory}/clean-css-${upstream.version}</extractDir>
 	</properties>
 
 	<developers>
@@ -80,9 +81,9 @@
 								<echo message="unzip archive" />
 								<unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
 								<echo message="moving resources" />
-								<move toDir="${destDir}">
-									<fileset dir="${project.build.directory}/clean-css-${upstream.version}" />
-								</move>
+								<move file="${extractDir}/package.json" toDir="${destDir}"/>
+								<move file="${extractDir}/index.js" toDir="${destDir}"/>
+								<move file="${extractDir}/lib" toDir="${destDir}"/>
 							</target>
 						</configuration>
 					</execution>
